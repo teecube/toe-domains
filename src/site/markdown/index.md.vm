@@ -1,0 +1,21 @@
+#set($h1 = '#')
+#set($h2 = '##')
+#set($h3 = '###')
+#set($h4 = '####')
+
+${toeDisplayedName} - ${toeDisplayedDomainsName} is a Maven plugin to create
+and manage TIBCO domains.
+
+$h3 5-minute user guide*
+
+\* <i>download-time of Maven dependencies not included.</i>
+
+---
+
+$h2 Documentation
+
+<ul class="fa-ul">
+  <li><span class="fa-li fa fa-plug"></span> <a href="./plugin-info.html">Plugin documentation</a></li>
+  <li>Source <span class="fa-li fa fa-git"></span> <a href="./source-repository.html">repository</a> / <span class="fa-li fa fa-git"></span> <a href="./xref/index.html">reference</a></li>
+  <li><span class="fa-li fa fa-coffee"></span> <a href="./apidocs/index.html">Javadoc</a></li>
+</ul>
