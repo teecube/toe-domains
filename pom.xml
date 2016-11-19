@@ -9,7 +9,7 @@
 	</parent>
 
 	<artifactId>toe-domains-plugin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 
 	<packaging>maven-plugin</packaging>
 
@@ -155,7 +155,7 @@
 		<connection>scm:git:https://git.teecu.be/teecube/toe-domains.git</connection>
 		<developerConnection>scm:git:https://git.teecu.be/teecube/toe-domains.git</developerConnection>
 		<url>https://git.teecu.be/teecube/toe-domains</url>
-		<tag>HEAD</tag>
+		<tag>toe-domains-plugin/0.0.1</tag>
 	</scm>
 
 </project>
