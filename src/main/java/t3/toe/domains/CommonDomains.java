@@ -1,5 +1,5 @@
 /**
- * (C) Copyright 2014-2016 teecube
+ * (C) Copyright 2016-2017 teecube
  * (http://teecu.be) and others.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -91,7 +91,7 @@ public abstract class CommonDomains extends CommonTIBCOMojo {
 
 				try {
 					if (pluginManager != null) {
-						PropertiesEnforcer.enforceProperties(session, pluginManager, logger, new ArrayList<String>(), DomainsLifecycleParticipant.class); // check that all mandatory properties are correct
+						PropertiesEnforcer.enforceProperties(session, pluginManager, logger, new ArrayList<String>(), DomainsLifecycleParticipant.class, DomainsLifecycleParticipant.pluginKey); // check that all mandatory properties are correct
 					}
 				} catch (MavenExecutionException e) {
 					throw new MojoExecutionException(e.getLocalizedMessage(), e);

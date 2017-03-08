@@ -1,5 +1,5 @@
 /**
- * (C) Copyright 2014-2016 teecube
+ * (C) Copyright 2016-2017 teecube
  * (http://teecu.be) and others.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -63,6 +63,10 @@ public class DomainsLifecycleParticipant extends AbstractMavenLifecycleParticipa
 
 	@org.apache.maven.plugins.annotations.Component
 	protected PluginDescriptor pluginDescriptor; // plugin descriptor of this plugin
+
+	public final static String pluginGroupId = "io.teecube.toe";
+	public final static String pluginArtifactId = "toe-domains";
+	public final static String pluginKey = DomainsLifecycleParticipant.pluginGroupId + ":" + DomainsLifecycleParticipant.pluginArtifactId;
 
 	@Override
 	public void afterProjectsRead(MavenSession session) throws MavenExecutionException {
