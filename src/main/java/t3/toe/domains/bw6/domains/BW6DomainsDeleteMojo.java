@@ -1,6 +1,6 @@
 /**
- * (C) Copyright 2016-2017 teecube
- * (http://teecu.be) and others.
+ * (C) Copyright 2016-2018 teecube
+ * (https://teecu.be) and others.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ package t3.toe.domains.bw6.domains;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-
 import t3.Messages;
 import t3.plugin.annotations.Mojo;
 import t3.toe.domains.bw6.domains.Domains.Domain;

@@ -1,6 +1,6 @@
 /**
- * (C) Copyright 2016-2017 teecube
- * (http://teecu.be) and others.
+ * (C) Copyright 2016-2018 teecube
+ * (https://teecu.be) and others.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,7 +17,6 @@
 package t3.toe.domains;
 
 import org.apache.maven.plugin.AbstractMojo;
-
 import t3.MojosFactory;
 import t3.toe.domains.bw6.domain.BW6DomainCreateMojo;
 import t3.toe.domains.bw6.domain.BW6DomainDeleteMojo;

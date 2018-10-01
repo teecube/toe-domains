@@ -1,6 +1,6 @@
 /**
- * (C) Copyright 2016-2017 teecube
- * (http://teecu.be) and others.
+ * (C) Copyright 2016-2018 teecube
+ * (https://teecu.be) and others.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,33 +16,26 @@
  */
 package t3.toe.domains.bw6;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Properties;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import com.google.common.base.Function;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
-
-import com.google.common.base.Function;
-
 import t3.CommonMojo;
-import t3.SortedProperties;
 import t3.plugin.annotations.GlobalParameter;
 import t3.tic.bw6.BW6MojoInformation;
 import t3.tic.bw6.Messages;
 import t3.toe.domains.CommonDomains;
 import t3.toe.domains.DomainsMojosInformation;
 import t3.toe.domains.bw6.Domain.DomainType;
+import t3.utils.SortedProperties;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CommonBW6Domains extends CommonDomains {
 
