@@ -16,17 +16,9 @@
  */
 package t3.toe.domains.bw6.domains;
 
-import java.io.File;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.bind.JAXBException;
-
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-
+import org.xml.sax.SAXException;
 import t3.Messages;
 import t3.plugin.annotations.Parameter;
 import t3.toe.domains.DomainsMojosInformation;
@@ -34,6 +26,11 @@ import t3.toe.domains.bw6.CommonBW6Domains;
 import t3.toe.domains.bw6.domain.BW6DomainCreateMojo;
 import t3.toe.domains.bw6.domain.BW6DomainDeleteMojo;
 import t3.toe.domains.bw6.domains.Domains.Domain;
+
+import javax.xml.bind.JAXBException;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
 *
@@ -77,7 +74,7 @@ public class CommonBW6DomainsTopology extends CommonBW6Domains {
 
 		try {
 			bW6DomainsMarshaller = new BW6DomainsMarshaller(domainsTopology);
-		} catch (JAXBException e) {
+		} catch (JAXBException | SAXException e) {
 			throw new MojoExecutionException("Unable to load topology from file '" + domainsTopology.getAbsolutePath() + "'");
 		}
 		if (bW6DomainsMarshaller == null) {
@@ -91,8 +88,8 @@ public class CommonBW6DomainsTopology extends CommonBW6Domains {
 		getLog().info(">>> " + pluginDescriptor.getArtifactId() + ":" + pluginDescriptor.getVersion() + ":" + bw6CreateGoal + " (" + "default-cli" + ") @ " + project.getArtifactId() + " >>>");
 
 		BW6DomainCreateMojo bw6DomainCreateMojo = new BW6DomainCreateMojo(this);
-		List<Map.Entry<String,String>> ignoredParameters = new ArrayList<Map.Entry<String,String>>();
-		ignoredParameters.add(new AbstractMap.SimpleEntry<>("domainName", BW6DomainCreateMojo.class.getCanonicalName()));
+		Map<String, String> ignoredParameters = new HashMap<String, String>();
+		ignoredParameters.put("domainName", BW6DomainCreateMojo.class.getCanonicalName());
 		bw6DomainCreateMojo.setIgnoredParameters(ignoredParameters);
 		bw6DomainCreateMojo.domainName = domain.name;
 		bw6DomainCreateMojo.execute();
@@ -107,8 +104,8 @@ public class CommonBW6DomainsTopology extends CommonBW6Domains {
 		getLog().info(">>> " + pluginDescriptor.getArtifactId() + ":" + pluginDescriptor.getVersion() + ":" + bw6DeleteGoal + " (" + "default-cli" + ") @ " + project.getArtifactId() + " >>>");
 
 		BW6DomainDeleteMojo bw6DomainDeleteMojo = new BW6DomainDeleteMojo(this);
-		List<Map.Entry<String,String>> ignoredParameters = new ArrayList<Map.Entry<String,String>>();
-		ignoredParameters.add(new AbstractMap.SimpleEntry<>("domainName", BW6DomainDeleteMojo.class.getCanonicalName()));
+		Map<String, String> ignoredParameters = new HashMap<String, String>();
+		ignoredParameters.put("domainName", BW6DomainDeleteMojo.class.getCanonicalName());
 		bw6DomainDeleteMojo.setIgnoredParameters(ignoredParameters);
 		bw6DomainDeleteMojo.domainName = domain.name;
 		bw6DomainDeleteMojo.execute();

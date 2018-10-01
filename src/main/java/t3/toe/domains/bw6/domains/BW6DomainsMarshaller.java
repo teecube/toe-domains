@@ -16,17 +16,17 @@
  */
 package t3.toe.domains.bw6.domains;
 
-import java.io.File;
+import org.xml.sax.SAXException;
+import t3.xml.XMLMarshall;
 
 import javax.xml.bind.JAXBException;
-
-import t3.xml.XMLMarshall;
+import java.io.File;
 
 public class BW6DomainsMarshaller extends XMLMarshall<Domains, ObjectFactory> {
 
 	public static final String NAMESPACE = "http://teecu.be/toe-domains/bw6-domains";
 
-	public BW6DomainsMarshaller(File xmlFile) throws JAXBException {
+	public BW6DomainsMarshaller(File xmlFile) throws JAXBException, SAXException {
 		super(xmlFile);
 	}
 

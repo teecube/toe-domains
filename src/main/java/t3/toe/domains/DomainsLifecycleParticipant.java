@@ -16,10 +16,6 @@
  */
 package t3.toe.domains;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.maven.AbstractMavenLifecycleParticipant;
 import org.apache.maven.MavenExecutionException;
 import org.apache.maven.artifact.repository.ArtifactRepositoryFactory;
@@ -32,11 +28,14 @@ import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.component.annotations.Component;
 import org.codehaus.plexus.component.annotations.Requirement;
 import org.codehaus.plexus.logging.Logger;
-
 import t3.AdvancedMavenLifecycleParticipant;
-import t3.CommonMojo;
+import t3.CommonMavenLifecycleParticipant;
 import t3.plugin.PluginConfigurator;
 import t3.plugin.PluginManager;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -44,7 +43,7 @@ import t3.plugin.PluginManager;
  *
  */
 @Component(role = AbstractMavenLifecycleParticipant.class, hint = "TOEDomainsLifecycleParticipant")
-public class DomainsLifecycleParticipant extends AbstractMavenLifecycleParticipant implements AdvancedMavenLifecycleParticipant {
+public class DomainsLifecycleParticipant extends CommonMavenLifecycleParticipant implements AdvancedMavenLifecycleParticipant {
 
     @Requirement
     private PlexusContainer plexus;
@@ -69,17 +68,26 @@ public class DomainsLifecycleParticipant extends AbstractMavenLifecycleParticipa
 	public final static String pluginKey = DomainsLifecycleParticipant.pluginGroupId + ":" + DomainsLifecycleParticipant.pluginArtifactId;
 
 	@Override
-	public void afterProjectsRead(MavenSession session) throws MavenExecutionException {
-		fixStandalonePOM(session.getCurrentProject(), new File(session.getRequest().getBaseDirectory()));
+	protected String getPluginGroupId() {
+		return pluginGroupId;
+	}
 
-		PluginConfigurator.propertiesManager = CommonMojo.propertiesManager(session, session.getCurrentProject());
+	@Override
+	protected String getPluginArtifactId() {
+		return pluginArtifactId;
+	}
 
+	@Override
+	protected String loadedMessage() {
+		return null;
+	}
+
+	@Override
+	protected void initProjects(MavenSession session) throws MavenExecutionException {
 		List<MavenProject> projects = prepareProjects(session.getProjects(), session);
 		session.setProjects(projects);
 
 		PluginManager.registerCustomPluginManager(pluginManager, new DomainsMojosFactory()); // to inject Global Parameters in Mojos
-
-		super.afterProjectsRead(session);
 	}
 
 	/**
@@ -87,9 +95,8 @@ public class DomainsLifecycleParticipant extends AbstractMavenLifecycleParticipa
 	 *
 	 * </p>
 	 *
-	 * @param session
 	 * @param projects
-	 * @param projectBuildingRequest
+	 * @param session
 	 * @throws MavenExecutionException
 	 */
 	private List<MavenProject> prepareProjects(List<MavenProject> projects, MavenSession session) throws MavenExecutionException {

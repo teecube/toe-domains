@@ -16,19 +16,18 @@
  */
 package t3.toe.domains;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import org.apache.maven.MavenExecutionException;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-
 import t3.AdvancedMavenLifecycleParticipant;
 import t3.CommonMojo;
 import t3.CommonTIBCOMojo;
 import t3.plugin.PropertiesEnforcer;
 import t3.plugin.annotations.Mojo;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
 *
@@ -47,7 +46,7 @@ public abstract class CommonDomains extends CommonTIBCOMojo {
 	}
 
 	@Override
-	protected AdvancedMavenLifecycleParticipant getLifecycleParticipant() throws MojoExecutionException {
+	protected AdvancedMavenLifecycleParticipant getLifecycleParticipant() {
 		return new DomainsLifecycleParticipant();
 	}
 
