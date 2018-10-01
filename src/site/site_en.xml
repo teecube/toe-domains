@@ -27,7 +27,7 @@
 			<protocolRelativeURLs>false</protocolRelativeURLs>
 			<absoluteResourceURL>${siteURL}</absoluteResourceURL>
 
-			<slogan><![CDATA[${toeSlogan}]]></slogan>
+			<slogan><![CDATA[${this.toeSlogan}]]></slogan>
 
 			<bottomNav maxSpan="9">
 				<column>${toeName} - ${toeDomainsName}</column>
@@ -37,7 +37,7 @@
 
 			<bottomDescription>
 				<![CDATA[
-				${ecosystemSumUp}
+				${this.ecosystemSumUp}
 				]]>
 			</bottomDescription>
 
@@ -55,7 +55,7 @@
 	<bannerLeft>
 		<name>
           <![CDATA[
-          ${toeDisplayedName} - ${toeDisplayedDomainsName}
+          ${this.toeDisplayedName} - ${this.toeDisplayedDomainsName}
           ]]>
 		</name>
 		<href>./index.html</href>
